@@ -73,14 +73,14 @@ const formSchema = z.object({
   warrantyDescription: z
     .string()
     .min(1, { message: "Warranty description is required." }),
-  reviewName: z.string().min(1, { message: "Reviewer name is required." }),
-  reviewDescription: z
-    .string()
-    .min(1, { message: "Review description is required." }),
-  rating: z
-    .number()
-    .min(1)
-    .max(5, { message: "Rating must be between 1 and 5." }),
+  // reviewName: z.string().min(1, { message: "Reviewer name is required." }),
+  // reviewDescription: z
+  //   .string()
+  //   .min(1, { message: "Review description is required." }),
+  // rating: z
+  //   .number()
+  //   .min(1)
+  //   .max(5, { message: "Rating must be between 1 and 5." }),
   metaTitle: z.string().min(1, { message: "Meta title is required." }),
   metaDescription: z
     .string()
@@ -125,9 +125,9 @@ export function ProductForm() {
       availabilityDate: new Date(),
       warrantyType: "",
       warrantyDescription: "",
-      reviewName: "",
-      reviewDescription: "",
-      rating: 5,
+      // reviewName: "",
+      // reviewDescription: "",
+      // rating: 5,
       metaTitle: "",
       metaDescription: "",
       metaKeywords: "",
@@ -146,6 +146,11 @@ export function ProductForm() {
             onSubmit={form.handleSubmit(onSubmit)}
             className=" grid grid-cols-3 gap-4 "
           >
+            <div className="col-span-3 py-4">
+              <h4 className="text-2xl font-bold">Product Details</h4>
+
+              <hr />
+            </div> 
             <FormField
               control={form.control}
               name="name"
@@ -593,13 +598,13 @@ export function ProductForm() {
               )}
             />
 
-            <div className="col-span-3 py-4">
+            {/* <div className="col-span-3 py-4">
               <h4 className="text-2xl font-bold">Reviews Details</h4>
 
               <hr />
-            </div>
+            </div> */}
 
-            <FormField
+            {/* <FormField
               control={form.control}
               name="reviewName"
               render={({ field }) => (
@@ -651,7 +656,7 @@ export function ProductForm() {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             <div className="col-span-3 py-4">
               <h4 className="text-2xl font-bold">Meta Details</h4>
 
